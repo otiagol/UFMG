@@ -1,0 +1,1 @@
+int populacao(unsigned long haba, double txa, unsigned long habb, double txb);
