@@ -1,5 +1,5 @@
 #include <iostream>
-#include "vetor.hpp"
+#include "vetor.h"
 //quando usa apenas o std vc chama todas as funcoes do std(standard q sao as funcoes padrao)
 using std::cin;//quando faz assim pega apenas as funcoes especificas do std q vc chamou
 using std::cout;// os ::(Operador de Resolução de Escopo) da o caminho ate a funcao convocada
