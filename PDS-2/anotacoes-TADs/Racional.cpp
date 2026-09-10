@@ -3,7 +3,13 @@ int Racional::MDC(int a, int b){//como esta separada da class, preciso especific
     if (b == 0) return a;
     return MDC(b, a % b);
 }
-void Racional::simplificar(){// a funcao e inteligente o suficiente pra saber q é pra usar quem esta chamando ela, sendo meio q um parametro indireto
+//obs:this e um ponteiro q guarda o end de memoria da variavel q chamou a funcao, porem ele n e nescessario, o computador consegue fazer ele implicitamente
+// a funcao e inteligente o suficiente pra saber q é pra usar quem esta chamando ela, sendo meio q um parametro indireto, e fazendo o this ser obsoleto
+void Racional::simplificar(){
+    if(this->den<0){
+        this->num= -this.num;
+        this->den= -this.den;
+    }
     int div= MDC(num, den);//dentro de uma funcao c o msm sobrenome n preciso falar o sobrenome
     this->num= this->num/div;//this significa a variavel q chamou a funcao
     this->den= this->den/div;
@@ -12,21 +18,26 @@ void Racional::simplificar(){// a funcao e inteligente o suficiente pra saber q 
 Racional::Racional(){//um construtor n e igual uma variavel normal, ele so aceita aquilo q foi ensinado
     num=0;           //se n tivesse este n poderia fazer oq fiz na funcao de soma, de criar um construtor sem declarar nada nele
     den=1;
-    simplificar();
+    this->simplificar();
 }
 Racional::Racional(int a){
     num=a;
     den=1;
-    simplificar();
+    this->simplificar();
 }
 Racional::Racional(int a, int b){
     num=a;
     den=b;
-    simplificar();
+    this->simplificar();
 }
-Racional Racional::soma(Racional x){
-    Racional y;
-    y.num= (num * x.den)+(den * x.num);
-    y.den= den * x.den;
-    return y;
+Racional Racional::operator+(Racional x){
+    int nnum= (this->num * x.den)+(this->den * x.num);
+    int dden= this->den * x.den;
+    return Racional(nnum, denn);
+}
+Racional Racional::simetrico(){
+    return Racional(-this->num, this->den);
+}
+Racional Racional::operator-(Racional x){
+    return *this + (x.simetrico());
 }
