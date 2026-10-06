@@ -28,25 +28,24 @@ string Dicionario::valor(string chave){
 
 void Dicionario::Inserir(string chave, string valor){
     this->Redimensionar(tElementos_ + 1);
-    elementos_[tElementos_].chave = chave;
-    elementos_[tElementos_].valor = valor;
-    tElementos_++;
+    this->elementos_[tElementos_].chave = chave;
+    this->elementos_[tElementos_].valor = valor;
+    this->tElementos_++;
 }
 
 void Dicionario::Remover(string chave){
     int i= this->achar(chave);
-    elementos_[i]= elementos_[tElementos_-1];//pega o ultimo para tapar o buraco
+    this->elementos_[i]= this->elementos_[tElementos_-1];//pega o ultimo para tapar o buraco
     tElementos_--;
 }
 
 void Dicionario::Alterar(string chave, string valor){
     int i= this->achar(chave);
-    elementos_[i].valor = valor;
+    this->elementos_[i].valor = valor;
 }
 
 Dicionario::~Dicionario(){
-    delete [] elementos_;
-    tElementos_=0;
+    delete [] this->elementos_;
 }
 
 int Dicionario::achar(string s){
@@ -58,9 +57,9 @@ int Dicionario::achar(string s){
 
 void Dicionario::Redimensionar(int m){
     Elemento* rcb= new Elemento[m];
-    for(int i=0; i<tElementos_; i++){
-        rcb[i]= elementos_[i];
+    for(int i=0; i<this->tElementos_; i++){
+        rcb[i]= this->elementos_[i];
     }
-    delete[]elementos_;
-    elementos_= rcb;
+    delete[] this->elementos_;
+    this->elementos_= rcb;
 }

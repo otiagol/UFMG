@@ -1,0 +1,2 @@
+Em C++, qualquer expressão que use operadores de comparação (==, !=, <, >) resulta obrigatoriamente num valor booleano (bool)
+ent algo como y==x se traduz para "y é igual a x?" q devolve um bool, ent algo como bool z = y==x; funciona
