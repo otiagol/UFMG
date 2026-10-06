@@ -32,7 +32,7 @@ Racional::Racional(int a, int b){
     den=b;
     this->simplificar();
 }
-Racional Racional::operator+(Racional x){
+Racional Racional::operator+(Racional x){//ao inves de chamar a funcar a.soma(b) chama a + b
     int nnum= (this->num * x.den)+(this->den * x.num);
     int dden= this->den * x.den;
     return Racional(nnum, dden);
