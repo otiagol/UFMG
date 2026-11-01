@@ -1,0 +1,5 @@
+Virtual Comum (virtual void func() { ... }): A mãe fornece um código padrão que funciona, mas permite que a filha o substitua (usando override) se precisar de algo mais específico.
+Virtual Puro (virtual void func() = 0;): A mãe não fornece código nenhum e proíbe que a sua própria classe seja instanciada. Transforma-se num contrato que obriga as filhas a escreverem esse método do zero.
+Destrutor Virtual (virtual ~Produto()): Garante que, ao fazer delete p; num ponteiro da mãe, o C++ desce a árvore de herança e executa o destrutor da classe filha primeiro, evitando fugas de memória (pedaços do objeto que ficam esquecidos na RAM).
+
+Filha* x = dynamic_cast<Filha*>(ponteiro_generico);// passa da classe mae para a filha

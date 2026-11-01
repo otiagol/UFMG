@@ -10,6 +10,7 @@
  * Ela armazenda a lista de pedidos que foram recebidos e imprime um relatorio
  * de vendas.
  */
+//O Gestor Global (Agregação)
 class Venda {
  public:
   /**

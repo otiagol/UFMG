@@ -8,7 +8,8 @@
  * de um produto do tipo Hamburguer.
  *
  */
-class Hamburguer : public Produto {
+//As Classes Filhas (Subclasses / Classes Derivadas)
+class Hamburguer : public Produto {// tudo da mae q n é private a filha pode acessar
  public:
   /**
    * @brief Construtor padrao que inicializa todas as variaveis da classe.
@@ -31,7 +32,9 @@ class Hamburguer : public Produto {
   std::string descricao() const override;
 
  private:
-  // TODO: Declare aqui as variaveis da classe. Note que as variaveis quantidade
-  // (qtd) e valor ja sao herdadas de Produto
+    string _tipo;
+    bool _atersanal;
+    int _qtd;
+    float _valor_unitario;
 };
 #endif

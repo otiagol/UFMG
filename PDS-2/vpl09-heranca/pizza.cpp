@@ -1,22 +1,17 @@
 #include "pizza.hpp"
 
 std::string Pizza::descricao() const {
-  // TODO: Implemente este metodo.
-  /*
-   * Note que aqui voce deve retornar uma descricao detalhada da pizza.
-   *
-   * Exemplos:
-   * 2X Pizza Calabresa, 4 pedacos e borda recheada.
-   * 2X Pizza Calabresa, 4 pedacos e sem borda recheada.
-   */
-   
-  return "";
+  stringstream ss;
+  ss << this->m_qtd << "X Pizza " << this->_sabor << ", " << this->_pedacos << "pedacos e";
+  if(!_borda_recheada) ss<< " sem";
+  ss<< " borda recheada";
+  return ss.str();
 }
 
-Pizza::Pizza(const std::string& sabor,
-             int pedacos,
-             bool borda_recheada,
-             int qtd,
-             float valor_unitario) {
-  // TODO: Implemente este metodo.
+Pizza::Pizza(const std::string& sabor, int pedacos, bool borda_recheada, int qtd, float valor_unitario) {
+  this->_sabor= sabor;
+  this->_pedacos= pedacos;
+  this->_borda_recheada= borda_recheada;
+  this->m_qtd= qtd;
+  this->m_valor_unitario= valor_unitario;
 }

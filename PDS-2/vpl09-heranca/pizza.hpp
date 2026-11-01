@@ -8,7 +8,8 @@
  * de um produto do tipo Pizza.
  *
  */
-class Pizza : public Produto {
+//As Classes Filhas (Subclasses / Classes Derivadas)
+class Pizza : public Produto { // tudo da mae q n é private a filha pode acessar
  public:
   /**
    * @brief Construtor padrao que inicializa todas as variaveis da classe.
@@ -19,7 +20,7 @@ class Pizza : public Produto {
    * @param qtd Quantidade de pizzas
    * @param valor_unitario Valor unitario de cada pizza
    */
-  Pizza(const std::string& sabor,
+  Pizza(const std::string& sabor,// & comercial para otimizar o codigo ele faz oq um ponteiro faria mas nos bastidores, e const pq como passamos o endereco de memoria para evitar mudar algo
         int pedacos,
         bool borda_recheada,
         int qtd,
@@ -30,11 +31,12 @@ class Pizza : public Produto {
    *
    * @return std::string Descricao da pizza.
    */
-  std::string descricao() const override;
+  std::string descricao() const override;//rescreve a funcao q estava na classe mae q tinha o virtual
 
  private:
-  // TODO: Declare aqui as variaveis da classe. Note que as variaveis quantidade
-  // (qtd) e valor ja sao herdadas de Produto
+      string _sabor;
+      int _pedacos;
+      bool _borda_recheada;
 };
 
 #endif

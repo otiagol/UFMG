@@ -1,21 +1,15 @@
 #include "hamburguer.hpp"
 
 std::string Hamburguer::descricao() const {
-  // TODO: Implemente este metodo.
-  /*
-   * Note que aqui voce deve retornar uma descricao detalhada do Hamburguer.
-   *
-   * Exemplos:
-   * 1X Hamburguer X-tudo artesanal.
-   * 1X Hamburguer X-tudo simples.
-   */
-   
-  return "";
+  stringstream ss;
+  ss << this->_qtd << "X Hamburguer " << this->_tipo;
+  if(_atersanal){ss<< " artesanal";}else{ ss<< " simples";}
+  return ss.str();
 }
 
-Hamburguer::Hamburguer(const std::string& tipo,
-                       bool artesanal,
-                       int qtd,
-                       float valor_unitario) {
-  // TODO: Implemente este metodo.
+Hamburguer::Hamburguer(const std::string& tipo, bool artesanal, int qtd, float valor_unitario) {
+  this->_tipo = tipo;
+  this-> _atersanal = artesanal;
+  this-> _qtd = qtd;
+  this-> _valor_unitario = valor_unitario;
 }

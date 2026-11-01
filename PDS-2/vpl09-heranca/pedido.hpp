@@ -12,7 +12,8 @@
  * @brief Classe responsavel pelo armazenamento e gerenciamento das informacoes
  * de um pedido.
  */
-class Pedido {
+//A Classe Agrupadora (Composição com Polimorfismo)
+class Pedido { 
  public:
   /**
    * @brief Destrutor da classe.
@@ -52,7 +53,7 @@ class Pedido {
    * @brief Lista de produtos do pedido. Pode ser do tipo Pizza, Hamburguer
    * ou Japonesa.
    */
-  std::list<Produto*> m_produtos;
+  std::list<Produto*> m_produtos;//todo alimento eh tratado como um produto, mas com o virtual quando sao chamadas funcoes sao chamadas as funcoes especificas, se n seriam chamadas as gerais
 
   /**
    * @brief Endereco de entrega do pedido
