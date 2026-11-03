@@ -2,22 +2,22 @@
 
 
 Pedido::~Pedido() {
-  // TODO: Implemente este metodo.
-  /**
-   * Aqui voce deve deletar os ponteiros contidos na lista m_produtos
-   */
+  for( Produto* ptr : m_produtos){
+    delete ptr;
+  }
 }
 
-void Pedido::setEndereco(const std::string& endereco) {
-  // TODO: Implemente este metodo.
+void Pedido::setEndereco(const std::string& endereco) {//referncia ponteiros de baixo dos panos
+  this->m_endereco = endereco;
 }
 
 float Pedido::calculaTotal() const {
   float total=0;
-  for(std::list<Produto*> it::iterator=m_produtos.begin(); it!=m_produtos.end(); it++){//(Produto* item : m_produtos) faz oq esta no parentese e tbm ja coloca *it em item
-    float+= (*it)->getvalor() * (*it)->getqtd();//total += item->getValor() * item->getQtd();
+  //tem q colocar const, pq como iterator viaja na memoria ele podeia alterar o valor e como o valor n pode ser alterado o c exige q o const seja colocado para o iterator n conseguir mudar
+  for(std::list<Produto*>::const_iterator it=m_produtos.begin(); it!=m_produtos.end(); it++){//(Produto* item : m_produtos) faz oq esta no parentese e tbm ja coloca *it em item
+    total += (*it)->getValor() * (*it)->getQtd();//total += item->getValor() * item->getQtd();
   }
-  return tota;;
+  return total;
 }
 
 void Pedido::adicionaProduto(Produto* p) {
@@ -25,12 +25,10 @@ void Pedido::adicionaProduto(Produto* p) {
 }
 
 std::string Pedido::resumo() const {
-  // TODO: Implemente este metodo.
-  /**
-   * Aqui voce deve percorrer a lista de produtos para criar um resumo completo
-   * do pedido. A cada iteracao, utilize o metodo descricao de cada produto para
-   * montar o resumo do pedido. Por fim, adicione o endereco de entrega.
-   *
-   */
-  return "";
+  string s= "";
+  for(Produto* ptr : m_produtos){
+    s += ptr->descricao();
+  }
+  s+= m_endereco;
+  return s;
 }

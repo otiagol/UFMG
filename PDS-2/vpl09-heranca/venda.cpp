@@ -10,14 +10,16 @@ Venda::~Venda() {
 }
 
 void Venda::adicionaPedido(Pedido* p) {
-  // TODO: Implemente este metodo
+  m_pedidos.emplace_back(p);
 }
 
 void Venda::imprimeRelatorio() const {
-  // TODO: Implemente este metodo
-  /**
-   * Aqui voce tem que percorrer a lista de todos os pedidos e imprimir o resumo
-   * de cada um. Por ultimo, devera ser exibido o total de venda e a quantidade
-   * de pedidos processados.
-   */
+  int qv=0;
+  float v=0;
+  for(Pedido* iptr : m_pedidos){
+    std::cout << iptr->resumo()<< v << std::endl;
+    qv+= iptr->calculaTotal();
+    v++;
+  }
+  std::cout<< qv << " "<< v;
 }
