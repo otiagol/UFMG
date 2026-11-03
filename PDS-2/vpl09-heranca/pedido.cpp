@@ -13,12 +13,15 @@ void Pedido::setEndereco(const std::string& endereco) {
 }
 
 float Pedido::calculaTotal() const {
-  // TODO: Implemente este metodo.
-  return 0;
+  float total=0;
+  for(std::list<Produto*> it::iterator=m_produtos.begin(); it!=m_produtos.end(); it++){//(Produto* item : m_produtos) faz oq esta no parentese e tbm ja coloca *it em item
+    float+= (*it)->getvalor() * (*it)->getqtd();//total += item->getValor() * item->getQtd();
+  }
+  return tota;;
 }
 
 void Pedido::adicionaProduto(Produto* p) {
-  // TODO: Implemente este metodo.
+  this->m_produtos.emplace_back(p);
 }
 
 std::string Pedido::resumo() const {
