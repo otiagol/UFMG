@@ -18,8 +18,8 @@ string FilaDePrioridade::RemoverMaiorPrioridade() {
 void FilaDePrioridade::Remover(string nome) {
 }
 
-int FilaDePrioridade::tamanho() {
-  return 0;
+int FilaDePrioridade::tamanho(){
+  return lista_.size();
 }
 
 vector<string> FilaDePrioridade::listar() {

@@ -32,5 +32,8 @@ int main() {
 
     z.clear(); // Limpa tudo
     //da pra passar normalmente para um vector incializando ele ou com insert
+
+    z = {4, 1, 9, 2};
+    z.sort(); // A lista reorganiza-se instantaneamente para: 1, 2, 4, 9
     return 0;
 }
