@@ -24,5 +24,8 @@ int FilaDePrioridade::tamanho(){
 
 vector<string> FilaDePrioridade::listar() {
   vector<string> v;
+  for( Pessoa& p : lista_){
+    v.emplace_back(p.nome);
+  }
   return v; 
 }
