@@ -9,8 +9,8 @@ using namespace std;
 
 using std::string;
 
-// Define um vetor cujos índices variam em
-// qualquer intervalo, inclusive negativos.
+// Define um vetor cujos índices variam em qualquer intervalo, inclusive negativos.
+//o codigo tem q ser feito no .h por causa do template
 class Vetor {
   public:
     // Cria um vetor cujos índices variam de 'inicio' até 'fim'.
