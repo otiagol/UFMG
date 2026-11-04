@@ -16,6 +16,8 @@ class Vetor {
     // Cria um vetor cujos índices variam de 'inicio' até 'fim'.
     // O valor associado aos índices é indefinido.
     // PRECONDIÇÃO: fim >= inicio.
+    //inicializa as variaveis antes de rodar o construtor, alocando os valores nelas ao mesmo tempo q sao criadas otimizando o processo
+    //e como tipos const n podem ser alterados o unico jeito de declarar ele e colocando o valor ao msm tempo que é criado
     Vetor(int inicio, int fim) : inicio_(inicio), fim_(fim) {
       elementos_ = new Tipo[fim - inicio + 1];
     }
