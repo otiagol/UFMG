@@ -1,0 +1,14 @@
+é a capacidade de um mesmo nome de função, operador ou estrutura se comportar de maneiras diferentes dependendo do contexto, divido em 3 partes
+
+Aparente:
+é a capacidade de um mesmo nome de função, operador ou estrutura se comportar de maneiras diferentes dependendo do contexto
+    de Sobrecarga->Múltiplas funções ou operadores usam o mesmo nome, mas recebem parâmetros diferentes. O compilador escolhe qual versão chamar olhando os tipos passados
+    de Coerção->É a conversão automática (implícita) ou forçada (cast) de um tipo para outro. Se uma função exige double e recebe um int, o compilador converte o inteiro para 
+decimal na memória antes de rodar.
+
+Polimorfismo Paramétrico / Templates:
+Aqui temos um código único que funciona como um "molde em branco" (template <typename Tipo>). Ele é chamado de paramétrico porque o próprio tipo de dado vira um parâmetro que
+você passa entre <>
+
+Polimorfismo de Subtipo / Herança:
+Ele permite que um ponteiro ou referência de uma Classe Base aponte para qualquer objeto de uma Classe Derivada na memória RAM.

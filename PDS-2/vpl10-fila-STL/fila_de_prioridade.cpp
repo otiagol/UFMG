@@ -18,9 +18,9 @@ void FilaDePrioridade::Adicionar(Pessoa p) {
 }
 
 string FilaDePrioridade::RemoverMaiorPrioridade() {
-  if(lista_->empty()==0)return "";
+  if(lista_.empty()==0)return "";
   string nome=lista_.front().nome;
-  this->remover(lista_.front());
+  this->Remover(lista_.front().nome);
   return nome;
 }
 
