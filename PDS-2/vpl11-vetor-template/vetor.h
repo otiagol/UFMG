@@ -11,6 +11,7 @@ using std::string;
 template <typename tipo>
 // Define um vetor cujos índices variam em qualquer intervalo, inclusive negativos.
 //o codigo tem q ser feito no .h por causa do template
+template <typename Tipo>
 class Vetor {
   public:
     // Cria um vetor cujos índices variam de 'inicio' até 'fim'.
@@ -29,28 +30,22 @@ class Vetor {
     // Já o valor dos demais índices é indefinido.  
     // PRECONDIÇÃO: fim2 >= inicio2.
     void Redimensionar(int inicio2, int fim2) {
-      Tipo* novos_elementos = new Tipo[fim2 - inicio2 + 1];
-      int inter_inicio = std::max(inicio_, inicio2);//devolve o maior entre os 2 numeros 
-      int inter_fim = std::min(fim_, fim2);
-      for (int i = inter_inicio; i <= inter_fim; ++i) {
-            // Mapeia o índice virtual 'i' para a posição real no novo e no antigo vetor
-            novos_elementos[i - inicio2] = elementos_[i - inicio_];
-        }
-
-        // 4. Liberta a memória antiga para evitar memory leaks
-        delete[] elementos_;
-
-        // 5. Atualiza os ponteiros e os limites da classe
-        elementos_ = novos_elementos;
-        inicio_ = inicio2;
-        fim_ = fim2;
+      rcb = new Tipo[fim2 - inicio2 + 1];
+      tam = (fim2 - inicio2)-(fim_ - inicio_)
+      for(int i=0 ;i<fim_ - inicio_ + 1; i++){
+        rcb[tam+i]=elementos_[i];
+      }
+      delete []elementos_;
+      elementos_=rcb;
+      inicio_= inicio2;
+      fim_= fim2;
     }
 
     // Retorna uma referência a variável correspondente ao índice i.
     // Pode ser utilizado tanto para atribuir quanto para acessar valores.
     // PRECONDIÇÃO: i está dentro do intervalo de índices do vetor.
     Tipo& operator[](int i) { 
-       return elementos_[i - inicio_];
+      return elementos[i-inicio_]; 
     }
 
     // Desaloca a memória reservada para os elementos do vetor.
