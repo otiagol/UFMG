@@ -1,0 +1,30 @@
+//para usar template é so colocar antes de abrir a classe: "template <typename Variavelgeral>"
+//Funções soltas ou métodos específicos: Você pode ter uma classe normal (sem template) e usar o template apenas num método específico dela, ou fazer uma função global genérica.
+template <typename T>
+T somar(T a, T b) { return a + b; }
+//Parâmetros de valor (Non-type parameters): O template não precisa receber apenas "tipos" (como int ou std::string), ele pode receber valores fixos em tempo de compilação.
+template <typename T, int Tamanho>
+class MeuArray {
+    T elementos[Tamanho]; // O tamanho é definido na criação!
+};
+// Uso: MeuArray<int, 5> array;
+//Se a filha também vai aceitar qualquer tipo de variável, ela também precisa da linha do template, e você tem de passar esse tipo genérico para a mãe:
+template <typename VariavelGeral>
+class FilhaGenerica : public Mae<VariavelGeral> { // Repassa o tipo para a Mae
+public:
+    void fazerAlgo() {
+        // Implementação tem de ficar aqui no .h também!
+    }
+};
+//Se a filha for uma especialização (por exemplo, uma filha que só lida com int), ela não leva o template no topo. Como ela deixou de ser um "molde" e virou uma classe normal, a implementação dela pode ir tranquilamente para um ficheiro .cpp separado.
+class FilhaDeInt : public Mae<int> { // A Mae agora é de um tipo fixo
+public:
+    void fazerAlgoEspecial(); // Só declara aqui
+};
+
+// Arquivo: FilhaDeInt.cpp
+//#include "FilhaDeInt.h"
+
+void FilhaDeInt::fazerAlgoEspecial() {
+    // Como a filha não é template, a implementação pode ficar no .cpp!
+}

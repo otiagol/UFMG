@@ -1,0 +1,4 @@
+o referncial e um ponteiro q faz tudo implicitamente
+Sintaxe Limpa (Desreferenciamento implícito): Com um ponteiro Jogador* p, para chamar uma função você tem que usar a seta p->getNome() ou desreferenciar (*p).getNome(). Com a referência Jogador& r, você usa o ponto normal como se fosse uma variável comum: r.getNome(). O C++ coloca o * por si invisivelmente.
+Impossível ser Nula: Um ponteiro pode ser nullptr (apontar para o nada), o que causa muitos crashes se você esquecer de testar com um if. Uma referência tem que nascer apontando para algo válido. O compilador nem deixa você compilar um código que tenta criar uma referência vazia.
+Casamento Eterno: Um ponteiro pode mudar de ideia. Ele pode apontar para o jogadorAzul_ agora, e na linha de baixo apontar para o jogadorVermelho_. Uma referência nasce atrelada a uma variável e morre atrelada a ela. É impossível fazer uma referência mudar de dono depois de criada.
